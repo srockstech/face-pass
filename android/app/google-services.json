@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "834805387454",
+    "project_id": "facepass-da382",
+    "storage_bucket": "facepass-da382.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834805387454:android:761ae6c206ff74411cceef",
+        "android_client_info": {
+          "package_name": "com.example.FaceNet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834805387454-nablj8k34b5t2en2mh2p6b7d49ogsusn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8fJ4KQRRuwVgTFLrE682dU6IhDLy9vkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834805387454-nablj8k34b5t2en2mh2p6b7d49ogsusn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "834805387454-08d36h036jltb2o11crt3s9u28clqfrr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.FaceNet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
