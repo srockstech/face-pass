@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:face_net_authentication/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'card_form.dart';
-import 'package:face_net_authentication/widgets/card_widget.dart';
 
 class CreditCard extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _CreditcardState extends State<CreditCard> {
         stream: _firebase.collection('cards').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final cardsList = snapshot.data.docs;
+            final cardsList = snapshot.data!.docs;
             List<ReusableCard> cardsWidgets = [];
             for (var cards in cardsList) {
               String cardsName = cards.get('Card Name');

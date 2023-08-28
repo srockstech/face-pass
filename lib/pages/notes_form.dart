@@ -1,15 +1,12 @@
-import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
-import 'package:face_net_authentication/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotesInputForm extends StatelessWidget {
   // CollectionReference notes = FirebaseFirestore.instance.collection('notes');
   FirebaseFirestore _firebase = FirebaseFirestore.instance;
-  String textNote;
+  String? textNote;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

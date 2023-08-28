@@ -8,8 +8,8 @@ class AppButton extends StatelessWidget {
         Icons.add,
         color: Colors.lightBlue,
       )});
-  final Function onPressed;
-  final String text;
+  final Function()? onPressed;
+  final String? text;
   final Icon icon;
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class AppButton extends StatelessWidget {
               width: 10,
             ),
             Text(
-              text,
+              text!,
               style: TextStyle(color: Colors.white),
             ),
           ],

@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:face_net_authentication/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'website_form.dart';
-import 'package:face_net_authentication/widgets/card_widget.dart';
 
 class Websites extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _WebsitesState extends State<Websites> {
         stream: _firebase.collection('credentials').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final websitesList = snapshot.data.docs;
+            final websitesList = snapshot.data!.docs;
             List<ReusableCard> websitesWidgets = [];
             for (var website in websitesList) {
               String userName = website.get('Username');

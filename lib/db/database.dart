@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path_provider/path_provider.dart';
 
 class DataBaseService {
@@ -14,7 +15,7 @@ class DataBaseService {
   DataBaseService._internal();
 
   /// file that stores the data on filesystem
-  File jsonFile;
+  File? jsonFile;
 
   /// Data learned on memory
   Map<String, dynamic> _db = Map<String, dynamic>();
@@ -27,8 +28,8 @@ class DataBaseService {
 
     jsonFile = new File(_embPath);
 
-    if (jsonFile.existsSync()) {
-      _db = json.decode(jsonFile.readAsStringSync());
+    if (jsonFile!.existsSync()) {
+      _db = json.decode(jsonFile!.readAsStringSync());
     }
   }
 
@@ -37,12 +38,12 @@ class DataBaseService {
   Future saveData(String user, String password, List modelData) async {
     String userAndPass = user + ':' + password;
     _db[userAndPass] = modelData;
-    jsonFile.writeAsStringSync(json.encode(_db));
+    jsonFile!.writeAsStringSync(json.encode(_db));
   }
 
   /// deletes the created users
   cleanDB() {
     this._db = Map<String, dynamic>();
-    jsonFile.writeAsStringSync(json.encode({}));
+    jsonFile!.writeAsStringSync(json.encode({}));
   }
 }

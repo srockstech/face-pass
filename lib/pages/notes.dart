@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:face_net_authentication/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'notes_form.dart';
-import 'package:face_net_authentication/widgets/card_widget.dart';
 
 class Notes extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _NotesState extends State<Notes> {
         stream: _firebase.collection('notes').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final notesList = snapshot.data.docs;
+            final notesList = snapshot.data!.docs;
             List<ReusableCard> notesWidgets = [];
             for (var note in notesList) {
               String notesText = note.get('Note');

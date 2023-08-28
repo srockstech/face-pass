@@ -1,10 +1,11 @@
 import 'dart:math';
 import 'dart:typed_data';
-import 'package:face_net_authentication/db/database.dart';
+
 import 'package:camera/camera.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:tflite_flutter/tflite_flutter.dart' as tflite;
+import 'package:face_net_authentication/db/database.dart';
+import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:image/image.dart' as imglib;
+import 'package:tflite_flutter/tflite_flutter.dart' as tflite;
 
 class FaceNetService {
   // singleton boilerplate
@@ -18,12 +19,12 @@ class FaceNetService {
 
   DataBaseService _dataBaseService = DataBaseService();
 
-  tflite.Interpreter _interpreter;
+  tflite.Interpreter? _interpreter;
 
   double threshold = 1.0;
 
-  List _predictedData;
-  List get predictedData => this._predictedData;
+  List? _predictedData;
+  List get predictedData => this._predictedData!;
 
   //  saved users data
   dynamic data = {};
@@ -50,25 +51,25 @@ class FaceNetService {
     }
   }
 
-  setCurrentPrediction(CameraImage cameraImage, Face face) {
+  setCurrentPrediction(CameraImage cameraImage, Face? face) {
     /// crops the face from the image and transforms it to an array of data
-    List input = _preProcess(cameraImage, face);
+    List input = _preProcess(cameraImage, face!);
 
     /// then reshapes input and ouput to model format 🧑‍🔧
     input = input.reshape([1, 112, 112, 3]);
     List output = List.generate(1, (index) => List.filled(192, 0));
 
     /// runs and transforms the data 🤖
-    this._interpreter.run(input, output);
+    this._interpreter!.run(input, output);
     output = output.reshape([192]);
 
     this._predictedData = List.from(output);
   }
 
   /// takes the predicted data previously saved and do inference
-  String predict() {
+  String? predict() {
     /// search closer user prediction if exists
-    return _searchResult(this._predictedData);
+    return _searchResult(this._predictedData!);
   }
 
   /// _preProess: crops the image to be more easy
@@ -106,11 +107,11 @@ class FaceNetService {
     var img = imglib.Image(width, height);
     const int hexFF = 0xFF000000;
     final int uvyButtonStride = image.planes[1].bytesPerRow;
-    final int uvPixelStride = image.planes[1].bytesPerPixel;
+    final int? uvPixelStride = image.planes[1].bytesPerPixel;
     for (int x = 0; x < width; x++) {
       for (int y = 0; y < height; y++) {
-        final int uvIndex =
-            uvPixelStride * (x / 2).floor() + uvyButtonStride * (y / 2).floor();
+        final int uvIndex = uvPixelStride! * (x / 2).floor() +
+            uvyButtonStride * (y / 2).floor();
         final int index = y * width + x;
         final yp = image.planes[0].bytes[index];
         final up = image.planes[1].bytes[uvIndex];
@@ -149,14 +150,14 @@ class FaceNetService {
 
   /// searchs the result in the DDBB (this function should be performed by Backend)
   /// [predictedData]: Array that represents the face by the MobileFaceNet model
-  String _searchResult(List predictedData) {
+  String? _searchResult(List predictedData) {
     Map<String, dynamic> data = _dataBaseService.db;
 
     /// if no faces saved
-    if (data?.length == 0) return null;
+    if (data.length == 0) return null;
     double minDist = 999;
     double currDist = 0.0;
-    String predRes;
+    String? predRes;
 
     /// search the closest result 👓
     for (String label in data.keys) {
@@ -171,7 +172,7 @@ class FaceNetService {
 
   /// Adds the power of the difference between each point
   /// then computes the sqrt of the result 📐
-  double _euclideanDistance(List e1, List e2) {
+  double _euclideanDistance(List? e1, List? e2) {
     if (e1 == null || e2 == null) throw Exception("Null argument");
 
     double sum = 0.0;

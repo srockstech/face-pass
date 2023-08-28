@@ -1,12 +1,9 @@
-import 'dart:async';
-import 'dart:io';
+import 'package:face_net_authentication/pages/creditcard.dart';
 import 'package:face_net_authentication/pages/home.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:face_net_authentication/pages/notes.dart';
+import 'package:face_net_authentication/pages/websites.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:face_net_authentication/pages/creditcard.dart';
-import 'package:face_net_authentication/pages/websites.dart';
-import 'package:face_net_authentication/pages/notes.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -87,18 +84,18 @@ class NavigationDrawerWidget extends StatelessWidget {
   }
 
   Widget buildMenuItem({
-    String text,
-    IconData icon,
-    VoidCallback onClicked,
-    Color textColor,
-    Color iconColor,
+    String? text,
+    IconData? icon,
+    VoidCallback? onClicked,
+    Color? textColor,
+    Color? iconColor,
   }) {
     final hoverColor = Colors.white70;
 
     return ListTile(
       textColor: textColor,
       leading: Icon(icon, color: iconColor),
-      title: Text(text, style: TextStyle(color: textColor, fontSize: 18)),
+      title: Text(text!, style: TextStyle(color: textColor, fontSize: 18)),
       hoverColor: hoverColor,
       onTap: onClicked,
     );

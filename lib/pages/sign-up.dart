@@ -1,34 +1,35 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:math' as math;
-import 'package:face_net_authentication/widgets/FacePainter.dart';
-import 'package:face_net_authentication/widgets/auth-action-button.dart';
-import 'package:face_net_authentication/widgets/camera_header.dart';
+
+import 'package:camera/camera.dart';
 import 'package:face_net_authentication/services/camera.service.dart';
 import 'package:face_net_authentication/services/facenet.service.dart';
 import 'package:face_net_authentication/services/ml_kit_service.dart';
-import 'package:camera/camera.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:face_net_authentication/widgets/FacePainter.dart';
+import 'package:face_net_authentication/widgets/auth-action-button.dart';
+import 'package:face_net_authentication/widgets/camera_header.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 
 class SignUp extends StatefulWidget {
   final CameraDescription cameraDescription;
 
-  const SignUp({Key key, @required this.cameraDescription}) : super(key: key);
+  const SignUp({Key? key, required this.cameraDescription}) : super(key: key);
 
   @override
   SignUpState createState() => SignUpState();
 }
 
 class SignUpState extends State<SignUp> {
-  String imagePath;
-  Face faceDetected;
-  Size imageSize;
+  String? imagePath;
+  Face? faceDetected;
+  Size? imageSize;
 
   bool _detectingFaces = false;
   bool pictureTaked = false;
 
-  Future _initializeControllerFuture;
+  Future? _initializeControllerFuture;
   bool cameraInitializated = false;
 
   // switchs when the user press the camera
@@ -69,7 +70,7 @@ class SignUpState extends State<SignUp> {
   }
 
   /// handles the button pressed event
-  Future<void> onShot() async {
+  Future<bool> onShot() async {
     if (faceDetected == null) {
       showDialog(
         context: context,
@@ -171,7 +172,7 @@ class SignUpState extends State<SignUp> {
                           alignment: Alignment.center,
                           child: FittedBox(
                             fit: BoxFit.cover,
-                            child: Image.file(File(imagePath)),
+                            child: Image.file(File(imagePath!)),
                           ),
                           transform: Matrix4.rotationY(mirror)),
                     );
@@ -197,7 +198,7 @@ class SignUpState extends State<SignUp> {
                                   CustomPaint(
                                     painter: FacePainter(
                                         face: faceDetected,
-                                        imageSize: imageSize),
+                                        imageSize: imageSize!),
                                   ),
                                 ],
                               ),
@@ -221,7 +222,7 @@ class SignUpState extends State<SignUp> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: !_bottomSheetVisible
             ? AuthActionButton(
-                _initializeControllerFuture,
+                _initializeControllerFuture!,
                 onPressed: onShot,
                 isLogin: false,
                 reload: _reload,

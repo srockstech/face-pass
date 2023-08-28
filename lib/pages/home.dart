@@ -1,13 +1,13 @@
+import 'package:camera/camera.dart';
 import 'package:face_net_authentication/db/database.dart';
 import 'package:face_net_authentication/pages/sign-in.dart';
 import 'package:face_net_authentication/pages/sign-up.dart';
 import 'package:face_net_authentication/services/facenet.service.dart';
 import 'package:face_net_authentication/services/ml_kit_service.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   MLKitService _mlKitService = MLKitService();
   DataBaseService _dataBaseService = DataBaseService();
 
-  CameraDescription cameraDescription;
+  CameraDescription? cameraDescription;
   bool loading = false;
 
   @override
@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) => SignIn(
-                                  cameraDescription: cameraDescription,
+                                  cameraDescription: cameraDescription!,
                                 ),
                               ),
                             );
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               context,
                               MaterialPageRoute(
                                 builder: (BuildContext context) => SignUp(
-                                  cameraDescription: cameraDescription,
+                                  cameraDescription: cameraDescription!,
                                 ),
                               ),
                             );

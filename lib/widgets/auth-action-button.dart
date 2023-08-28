@@ -1,23 +1,22 @@
-import 'dart:io';
-
 import 'package:face_net_authentication/db/database.dart';
 import 'package:face_net_authentication/models/user.model.dart';
-import 'package:face_net_authentication/pages/mainpage.dart';
-import 'package:face_net_authentication/widgets/app_button.dart';
-import 'package:face_net_authentication/services/camera.service.dart';
-import 'package:face_net_authentication/services/facenet.service.dart';
-import 'package:flutter/material.dart';
 //import '../home.dart';
 import 'package:face_net_authentication/pages/home.dart';
+import 'package:face_net_authentication/pages/mainpage.dart';
+import 'package:face_net_authentication/services/camera.service.dart';
+import 'package:face_net_authentication/services/facenet.service.dart';
+import 'package:face_net_authentication/widgets/app_button.dart';
+import 'package:flutter/material.dart';
+
 import 'app_text_field.dart';
 
 class AuthActionButton extends StatefulWidget {
   AuthActionButton(this._initializeControllerFuture,
-      {Key key, @required this.onPressed, @required this.isLogin, this.reload});
+      {Key? key, required this.onPressed, required this.isLogin, this.reload});
   final Future _initializeControllerFuture;
   final Function onPressed;
   final bool isLogin;
-  final Function reload;
+  final Function? reload;
   @override
   _AuthActionButtonState createState() => _AuthActionButtonState();
 }
@@ -33,7 +32,7 @@ class _AuthActionButtonState extends State<AuthActionButton> {
   final TextEditingController _passwordTextEditingController =
       TextEditingController(text: '');
 
-  User predictedUser;
+  User? predictedUser;
 
   Future _signUp(context) async {
     /// gets predicted data from facenet service (user face detected)
@@ -53,12 +52,12 @@ class _AuthActionButtonState extends State<AuthActionButton> {
   Future _signIn(context) async {
     String password = _passwordTextEditingController.text;
 
-    if (this.predictedUser.password == password) {
+    if (this.predictedUser!.password == password) {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (BuildContext context) => Profile(
-                    this.predictedUser.user,
+                    this.predictedUser!.user,
                     imagePath: _cameraService.imagePath,
                   )));
     } else {
@@ -73,9 +72,9 @@ class _AuthActionButtonState extends State<AuthActionButton> {
     }
   }
 
-  String _predictUser() {
-    String userAndPass = _faceNetService.predict();
-    return userAndPass ?? null;
+  String? _predictUser() {
+    String? userAndPass = _faceNetService.predict();
+    return (userAndPass ?? null)!;
   }
 
   @override
@@ -99,7 +98,7 @@ class _AuthActionButtonState extends State<AuthActionButton> {
                 Scaffold.of(context)
                     .showBottomSheet((context) => signSheet(context));
 
-            bottomSheetController.closed.whenComplete(() => widget.reload());
+            bottomSheetController.closed.whenComplete(() => widget.reload!());
           }
         } catch (e) {
           // If an error occurs, log the error to the console.
@@ -140,7 +139,7 @@ class _AuthActionButtonState extends State<AuthActionButton> {
           widget.isLogin && predictedUser != null
               ? Container(
                   child: Text(
-                    'Welcome back, ' + predictedUser.user + '!',
+                    'Welcome back, ' + predictedUser!.user + '!',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                 )
