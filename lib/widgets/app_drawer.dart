@@ -1,7 +1,7 @@
-import 'package:face_net_authentication/pages/creditcard.dart';
-import 'package:face_net_authentication/pages/home.dart';
-import 'package:face_net_authentication/pages/notes.dart';
-import 'package:face_net_authentication/pages/websites.dart';
+import 'package:face_pass/pages/creditcard.dart';
+import 'package:face_pass/pages/home.dart';
+import 'package:face_pass/pages/notes.dart';
+import 'package:face_pass/pages/websites.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

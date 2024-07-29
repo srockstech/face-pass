@@ -57,7 +57,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.FaceNet"
+        applicationId "tech.srocks.facepass"
         minSdkVersion 29
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
@@ -99,4 +99,7 @@ flutter {
 
 dependencies {
     implementation "androidx.work:work-runtime-ktx:2.7.0"
+    implementation 'com.google.firebase:firebase-firestore:24.11.0'
+    implementation 'com.squareup.okio:okio:3.0.0' // Ensure this version is compatible
+    implementation 'io.grpc:grpc-okhttp:1.42.1'
 }

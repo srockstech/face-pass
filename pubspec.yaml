@@ -1,4 +1,4 @@
-#name: face_net_authentication
+#name: face_pass
 #description: A new Flutter project.
 #
 ## The following line prevents the package from being accidentally published to
@@ -120,8 +120,8 @@
 #  85 lines (71 sloc)  3.03 KB
 #  RawBlame
 
-name: face_net_authentication
-description: A new Flutter project.
+name: face_pass
+description: A secure password manager that uses face recognition for keeping user data secure.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB8fJ4KQRRuwVgTFLrE682dU6IhDLy9vkg',
-    appId: '1:834805387454:android:761ae6c206ff74411cceef',
-    messagingSenderId: '834805387454',
-    projectId: 'facepass-da382',
-    storageBucket: 'facepass-da382.appspot.com',
+    apiKey: 'AIzaSyAl7OHfylonmpFv5gAwj9CX3SdpdyHaiNE',
+    appId: '1:728126953870:android:609afbd9af8169d98c2cdf',
+    messagingSenderId: '728126953870',
+    projectId: 'facepass-730e5',
+    storageBucket: 'facepass-730e5.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDzkLQ_wKVLE7sfmfbcYWZDirFqVA9ECM0',
-    appId: '1:834805387454:ios:f9c145800dfaeeb51cceef',
-    messagingSenderId: '834805387454',
-    projectId: 'facepass-da382',
-    storageBucket: 'facepass-da382.appspot.com',
-    iosClientId: '834805387454-08d36h036jltb2o11crt3s9u28clqfrr.apps.googleusercontent.com',
-    iosBundleId: 'com.example.FaceNet',
+    apiKey: 'AIzaSyCeOqugkgQE5sHQltVRSs-59mTKCmsgJBs',
+    appId: '1:728126953870:ios:3b59ddd95ffd96018c2cdf',
+    messagingSenderId: '728126953870',
+    projectId: 'facepass-730e5',
+    storageBucket: 'facepass-730e5.appspot.com',
+    iosBundleId: 'tech.srocks.facepass',
   );
+
 }

@@ -1,11 +1,11 @@
-import 'package:face_net_authentication/db/database.dart';
-import 'package:face_net_authentication/models/user.model.dart';
+import 'package:face_pass/db/database.dart';
+import 'package:face_pass/models/user.model.dart';
 //import '../home.dart';
-import 'package:face_net_authentication/pages/home.dart';
-import 'package:face_net_authentication/pages/mainpage.dart';
-import 'package:face_net_authentication/services/camera.service.dart';
-import 'package:face_net_authentication/services/facenet.service.dart';
-import 'package:face_net_authentication/widgets/app_button.dart';
+import 'package:face_pass/pages/home.dart';
+import 'package:face_pass/pages/mainpage.dart';
+import 'package:face_pass/services/camera.service.dart';
+import 'package:face_pass/services/facenet.service.dart';
+import 'package:face_pass/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 import 'app_text_field.dart';

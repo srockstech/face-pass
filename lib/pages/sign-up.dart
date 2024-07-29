@@ -3,12 +3,12 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:camera/camera.dart';
-import 'package:face_net_authentication/services/camera.service.dart';
-import 'package:face_net_authentication/services/facenet.service.dart';
-import 'package:face_net_authentication/services/ml_kit_service.dart';
-import 'package:face_net_authentication/widgets/FacePainter.dart';
-import 'package:face_net_authentication/widgets/auth-action-button.dart';
-import 'package:face_net_authentication/widgets/camera_header.dart';
+import 'package:face_pass/services/camera.service.dart';
+import 'package:face_pass/services/facenet.service.dart';
+import 'package:face_pass/services/ml_kit_service.dart';
+import 'package:face_pass/widgets/FacePainter.dart';
+import 'package:face_pass/widgets/auth-action-button.dart';
+import 'package:face_pass/widgets/camera_header.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 

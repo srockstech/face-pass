@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:face_net_authentication/pages/notes_form.dart';
-import 'package:face_net_authentication/pages/website_form.dart';
-import 'package:face_net_authentication/widgets/app_drawer.dart';
+import 'package:face_pass/pages/notes_form.dart';
+import 'package:face_pass/pages/website_form.dart';
+import 'package:face_pass/widgets/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -78,7 +78,6 @@ class Profile extends StatelessWidget {
                       FontAwesomeIcons.creditCard,
                       size: 60,
                     ),
-                    Divider(),
                     Text(
                       'BANK CARDS',
                       style: TextStyle(
@@ -113,7 +112,6 @@ class Profile extends StatelessWidget {
                       FontAwesomeIcons.globe,
                       size: 60,
                     ),
-                    Divider(),
                     Text(
                       'WEBSITES',
                       style: TextStyle(
@@ -148,7 +146,6 @@ class Profile extends StatelessWidget {
                       FontAwesomeIcons.solidStickyNote,
                       size: 60,
                     ),
-                    Divider(),
                     Text(
                       'NOTES',
                       style: TextStyle(

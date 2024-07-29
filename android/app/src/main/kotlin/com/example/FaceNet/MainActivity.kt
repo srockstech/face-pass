@@ -1,4 +1,4 @@
-package com.example.FaceNet
+package tech.srocks.facepass
 
 import io.flutter.embedding.android.FlutterActivity
 
