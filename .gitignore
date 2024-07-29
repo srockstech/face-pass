@@ -48,3 +48,9 @@ app.*.map.json
 
 # FVM (Flutter Version Management)
 /.fvm
+
+# Firebase
+firebase.json
+lib/firebase_options.dart
+ios/firebase_app_id_file.json
+ios/Runner/GoogleService-Info.plist
