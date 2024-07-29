@@ -45,8 +45,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/android/local.properties
-/.fvm
 
-# Gradle files
-android/.gradle/
+# FVM (Flutter Version Management)
+/.fvm
