@@ -2,7 +2,7 @@
 <a href = "https://drive.google.com/file/d/1q4Zz1BR5OIE312KCga8qQgb8wkVgGsfl/view?usp=sharing" >APK Download Link</a>
 
 ## About The Project:
-Today people have many credentials, bank cards, and important notes that they can't remember the details of. They can't write the credentials anywhere as it is a threat to the security of the credentials. With FacePass, users can keep their credentials safe as it requires face recognition and authentication. It also asks for the password during the login after face authentication, making it highly secure.
+Today everyone has many credentials, bank cards, and important notes that they can't remember the details of. They can't write the credentials anywhere as it is a threat to the security of the credentials. With FacePass, users can keep their credentials safe as it requires face recognition and authentication. It also asks for the password during the login after face authentication, making it highly secure.
 ### Salient Features:
 * User authentication using Face ID via Tensorflow Lite.
 * Adding bank cards and websites login credentials.
