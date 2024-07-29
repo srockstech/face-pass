@@ -61,8 +61,6 @@ To install and run the project on your local system, follow the setup:
 * Login to the app through face recognition and authentication and enter the password.
 
 <img src="Images/landing.jpeg" alt="Landing Page" height="500">
-<img src="Images/signup.jpeg" alt="Sign up Page" height="500">
-<img src="Images/login.jpeg" alt="Login Page" height="500">
 
 ### Home Page:
 * The Home page has a drawer and an add button. An user can add their important notes, website and bank card details directly by clicking on the floating add button.

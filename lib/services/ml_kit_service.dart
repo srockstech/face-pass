@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
@@ -49,7 +50,12 @@ class MLKitService {
 
     /// Transform the image input for the _faceDetector 🎯
     InputImage _firebaseVisionImage = InputImage.fromBytes(
-      bytes: image.planes[0].bytes,
+      bytes: Uint8List.fromList(
+        image.planes.fold(
+            <int>[],
+                (List<int> previousValue, element) =>
+            previousValue..addAll(element.bytes)),
+      ),
       metadata: _firebaseImageMetadata,
     );
 

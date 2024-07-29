@@ -45,7 +45,7 @@ android {
         noCompress "lite"
     }
 
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -62,14 +62,33 @@ android {
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a" // Include only necessary ABIs
+        }
     }
 
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
+    }
+
+    splits {
+        density {
+            enable true
+            reset()
+            include "mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi"
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g" // Increase memory for the dex process
     }
 
 }

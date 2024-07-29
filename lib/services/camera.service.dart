@@ -37,8 +37,13 @@ class CameraService {
       this._cameraDescription!.sensorOrientation,
     );
 
+    try {
     // Next, initialize the controller. This returns a Future.
-    return this._cameraController!.initialize();
+    return await this._cameraController!.initialize();
+    } catch (e) {
+      print('Error initializing camera: $e');
+      rethrow;
+    }
   }
 
   InputImageRotation rotationIntToImageRotation(int rotation) {
@@ -56,9 +61,14 @@ class CameraService {
 
   /// takes the picture and saves it in the given path 📸
   Future<XFile> takePicture() async {
+    try {
     XFile file = await _cameraController!.takePicture();
     this._imagePath = file.path;
     return file;
+    } catch (e) {
+      print('Error taking picture: $e');
+      rethrow;
+    }
   }
 
   /// returns the image size 📏

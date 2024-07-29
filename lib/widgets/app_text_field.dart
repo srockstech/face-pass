@@ -24,16 +24,22 @@ class AppTextField extends StatelessWidget {
       autofocus: this.autofocus,
       cursorColor: Colors.lightBlue,
       decoration: InputDecoration(
-        label: Text(
-          labelText,
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
-          ),
+        hintText: labelText,
+        hintStyle: TextStyle(
+          color: Colors.grey,
         ),
+        labelText: labelText,
+        
+        // label: Text(
+        //   labelText,
+        //   style: TextStyle(
+        //     fontSize: 16,
+        //     color: Colors.grey,
+        //   ),
+        // ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: InputBorder.none,
-        filled: true,
+        // filled: true,
         enabledBorder: new OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.grey,

@@ -150,7 +150,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   tflite_flutter: ^0.8.0
-  camera: ^0.8.1
+  camera: ^0.11.0+1
   path_provider: ^2.0.1
   image: ^3.0.2
   font_awesome_flutter: ^9.0.0

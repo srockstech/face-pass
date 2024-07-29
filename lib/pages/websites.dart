@@ -30,69 +30,71 @@ class _WebsitesState extends State<Websites> {
           if (snapshot.hasData) {
             final websitesList = snapshot.data!.docs;
             List<ReusableCard> websitesWidgets = [];
-            for (var website in websitesList) {
-              String userName = website.get('Username');
-              String websitesURL = website.get('Website URL');
-              String password = website.get('Password');
-              final websitesWidget = ReusableCard(
-                colour: Colors.grey[850],
-                cardChild: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        websitesURL,
-                        style: TextStyle(
-                            color: Colors.white,
-                            // fontWeight: FontWeight,
-                            fontSize: 20),
-                      ),
-                    ),
-                    SizedBox(
-                      child: Divider(
-                        color: Colors.lightBlue,
-                      ),
-                      width: 1000,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Username',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                        Text(
-                          userName,
+            if(websitesWidgets.isNotEmpty) {
+              for (var website in websitesList) {
+                String userName = website.get('Username');
+                String websitesURL = website.get('Website URL');
+                String password = website.get('Password');
+                final websitesWidget = ReusableCard(
+                  colour: Colors.grey[850],
+                  cardChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          websitesURL,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700),
+                              // fontWeight: FontWeight,
+                              fontSize: 20),
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Password',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                      ),
+                      SizedBox(
+                        child: Divider(
+                          color: Colors.lightBlue,
                         ),
-                        Text(
-                          password,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              );
-              websitesWidgets.add(websitesWidget);
+                        width: 1000,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Username',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                          Text(
+                            userName,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Password',
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                          Text(
+                            password,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+                websitesWidgets.add(websitesWidget);
+              }
             }
 
             return (websitesWidgets.length == 0)
