@@ -28,6 +28,8 @@ class NotesInputForm extends StatelessWidget {
             await Fluttertoast.showToast(
               msg: 'New Note Added',
               fontSize: 16,
+              backgroundColor: Colors.lightBlueAccent,
+              textColor: Colors.black
             );
           },
           child: Icon(FontAwesomeIcons.check),

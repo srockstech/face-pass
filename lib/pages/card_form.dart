@@ -52,9 +52,10 @@ class CardDetailsInputForm extends StatelessWidget {
             });
             Navigator.pop(context);
             await Fluttertoast.showToast(
-              msg: 'New Card Added',
-              fontSize: 16,
-            );
+                msg: 'New Card Added',
+                fontSize: 16,
+                backgroundColor: Colors.lightBlueAccent,
+                textColor: Colors.black);
             // }
           },
           child: Icon(FontAwesomeIcons.check),

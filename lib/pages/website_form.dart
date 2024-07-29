@@ -36,9 +36,10 @@ class WebsiteDetailsInputForm extends StatelessWidget {
             });
             Navigator.pop(context);
             await Fluttertoast.showToast(
-              msg: 'New Credentials Added',
-              fontSize: 16,
-            );
+                msg: 'New Credentials Added',
+                fontSize: 16,
+                backgroundColor: Colors.lightBlueAccent,
+                textColor: Colors.black);
           },
           child: Icon(FontAwesomeIcons.check),
           backgroundColor: Colors.lightBlueAccent),
